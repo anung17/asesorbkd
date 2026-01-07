@@ -15,7 +15,7 @@ import plotly.express as px
 
 st.set_page_config(layout='wide')
 st.title('Penugasan Asesor BKD')
-st.header('Penugasan Asesor BKD')
+st.write('# Data Dosen')
 
 sheet_data = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRrs605OjSBBbGchqUt35HgN2c71vrsQGkhhHW4xHMti91Z23BmlqGHv-O1G131tXAYxkcxsuRrfMqw/pub?output=csv'
 
@@ -26,7 +26,7 @@ st.write(df.head())
 
 st.write('## Rangkuman')
 
-colprodi, coljabamik, colserdos = st.columns(3)
+colprodi, coljabamik, colpendidikan, colserdos = st.columns(4)
 with colprodi:
     st.plotly_chart(
         px.pie(
@@ -40,6 +40,13 @@ with coljabamik:
         px.pie(
             df, names='Jabamik',
             title='Komposisi Jabatan Akademik'
+        )
+    )
+with colpendidikan:
+    st.plotly_chart(
+        px.pie(
+            df, names='Pendidikan',
+            title='Komposisi Pendidikan Terakhir'
         )
     )
 with colserdos:
