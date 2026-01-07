@@ -21,7 +21,31 @@ sheet_data = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRrs605OjSBBbGchqU
 
 df = pd.read_csv(sheet_data)
 
+st.write('## 5 data pertama')
 st.write(df.head())
 
+st.write('## Rangkuman')
 
-
+colprodi, coljabamik, colserdos = st.columns(3)
+with colprodi:
+    st.plotly_chart(
+        px.pie(
+            df,
+            names='Program Studi',
+            title='Komposisi Dosen per Program Studi'
+        )
+    )
+with coljabamik:
+    st.plotly_chart(
+        px.pie(
+            df, names='Jabamik',
+            title='Komposisi Jabatan Akademik'
+        )
+    )
+with colserdos:
+    st.plotly_chart(
+        px.pie(
+            df, names='Status Serdos',
+            title='Komposisi Status Sertifikasi Dosen'
+        )
+    )
