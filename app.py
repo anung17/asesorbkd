@@ -13,6 +13,9 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+# Local class
+import dosen as dsn
+
 st.set_page_config(layout='wide')
 st.title('Penugasan Asesor BKD')
 st.write('# Data Dosen')
@@ -23,6 +26,16 @@ df = pd.read_csv(sheet_data)
 
 st.write('## 5 data pertama')
 st.write(df.head())
+
+#iter_test = 5
+#iter_count = 1
+list_dosen = []
+for row in df.itertuples(index=False):
+    dosen = dsn.Dosen(row[2], row[5], row[6])
+    st.write(dosen)
+    list_dosen.append(dosen)
+
+st.write(f"{len(list_dosen)=}")
 
 st.write('## Rangkuman')
 
