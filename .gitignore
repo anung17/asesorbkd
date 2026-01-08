@@ -1,0 +1,2 @@
+# Ignore temporary folder(s)
+__pycache__/
