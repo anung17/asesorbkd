@@ -32,10 +32,10 @@ st.write(df.head())
 list_dosen = []
 for row in df.itertuples(index=False):
     dosen = dsn.Dosen(row[2], row[5], row[6])
-    st.write(dosen)
+    #st.write(dosen)
     list_dosen.append(dosen)
 
-st.write(f"{len(list_dosen)=}")
+st.write(f"{len(list_dosen)} `Dosen` objects were created.")
 
 st.write('## Rangkuman')
 
